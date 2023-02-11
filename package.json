@@ -1,0 +1,24 @@
+{
+  "name": "shop-app",
+  "version": "1.0.0",
+  "description": "Node Js project including MVC, Rest APIs, GraaphQL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server":"node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RituP006/Node-ecommerce.git"
+  },
+  "author": "Ritu Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RituP006/Node-ecommerce/issues"
+  },
+  "homepage": "https://github.com/RituP006/Node-ecommerce#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
