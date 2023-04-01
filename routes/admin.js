@@ -1,17 +1,12 @@
 const express = require('express');
-const path = require('path');
 
-const rootDir = require('../utils/path');
+const adminController=require('../controllers/admin');
 const router = express.Router();
 
+router.get('/add-product', adminController.getAddProduct);
 
-router.get('/add-product',(req,res,next)=>{
-    res.sendFile(path.join(rootDir,'views','admin.html'));
-});
+router.get('/products',adminController.getProducts);
+router.post('/product',adminController.postAddedProduct); // we can filter get post request like this
+router.get('/edit-product',adminController.getEditProduct);
 
-router.post('/product',(req,res,next)=>{
-    console.log(req.body);
-    res.send("<H1> Hello From NodeJS </h1>");
-});
-
-module.exports = router;
+module.exports=router;

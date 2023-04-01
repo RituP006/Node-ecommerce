@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2fr);
+  grid-gap: 0.5rem;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
+
+.card {
+  width: 350px;
+  padding: 1rem;
+  border-radius: 12;
+  border: 0.1rem black solid;
+}
+
+.card-img{
+  height: 300;
+  width: 500;
+}
+
+.card-content{
+  margin-bottom: 1rem;
+}
+.card button,
+.card a{
+  padding: 0.5rem;
+  margin: 1rem;
+  border: rgb(128, 106, 9) solid;
+  border-radius: 15;
+  color: rgb(128, 106, 9);
+
+  
+}
+
+.card button:hover,
+.card a:hover{
+  background-color:rgb(128, 106, 9) ;
+  color: white;
+}
+
