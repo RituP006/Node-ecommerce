@@ -1,43 +1,27 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2fr);
-  grid-gap: 0.5rem;
+.product-form {
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
 }
 
-img {
-  width: 50%;
+.product-item {
+  width: 20%;
+  max-width: 50%;
   height: 50%;
+  margin: 10px
 }
 
-.card {
-  width: 350px;
-  padding: 1rem;
-  border-radius: 12;
-  border: 0.1rem black solid;
+.product__title {
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.card-img{
-  height: 300;
-  width: 500;
+.product__price {
+  text-align: center;
+  color: #4d4d4d;
+  margin-bottom: 0.5rem;
 }
 
-.card-content{
-  margin-bottom: 1rem;
+.product__description {
+  text-align: center;
 }
-.card button,
-.card a{
-  padding: 0.5rem;
-  margin: 1rem;
-  border: rgb(128, 106, 9) solid;
-  border-radius: 15;
-  color: rgb(128, 106, 9);
-
-  
-}
-
-.card button:hover,
-.card a:hover{
-  background-color:rgb(128, 106, 9) ;
-  color: white;
-}
-

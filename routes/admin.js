@@ -6,7 +6,9 @@ const router = express.Router();
 router.get('/add-product', adminController.getAddProduct);
 
 router.get('/products',adminController.getProducts);
-router.post('/product',adminController.postAddedProduct); // we can filter get post request like this
-router.get('/edit-product',adminController.getEditProduct);
+router.post('/add-product',adminController.postAddedProduct); // we can filter get post request like this
+router.get('/edit-product/:productId',adminController.getEditProduct);
+router.post('/delete-product',adminController.postDeleteProduct);
+router.post('/edit-product',adminController.postEditProduct);
 
 module.exports=router;
