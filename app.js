@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyparser = require('body-parser')  // parse the incoming requests body
 const path = require('path')
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -14,7 +15,6 @@ const adminRoutes = require('./routes/admin')
 const shoproutes = require('./routes/shop')
 
 const errorController=require('./controllers/error');
-const mongoConnect = require('./utils/database').mongoConnect;
 const User = require('./models/user');
 
 app.use(bodyparser.urlencoded({ extended: false }))  //urlencoded function gives us the middleware similar to one below, but it also parses the request body. though it does not parses files, json it can parse form data.
@@ -23,9 +23,9 @@ app.use(express.static(path.join(__dirname, 'public'))); // allow us to deliver 
 
 
 app.use((req, res, next) => {
-  User.findById('647f6592f74e2a51accdd20d')
+  User.findById('648885f78f0543dc6bcd5f8f')
     .then(user => {
-      req.user = new User(user.name, user.email, user.cart, user._id);
+      req.user = user;
       next();
     })
     .catch(err => console.log(err));
@@ -43,8 +43,25 @@ app.use(errorController.get404);
 // server.listen(3000)
 
 
-mongoConnect(() => {
-    console.log("COnnected!");
+mongoose
+  .connect(
+    'mongodb+srv://ritupatel:R8983357990p@cluster0.u1u2jqj.mongodb.net/shop?retryWrites=true&w=majority'
+  )
+  .then(result => {
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'Ritu',
+          email: 'ritu@gmail.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    });
     app.listen(3000);
+  })
+  .catch(err => {
+    console.log(err);
   });
-  
