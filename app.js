@@ -3,6 +3,7 @@ const express = require('express');
 const bodyparser = require('body-parser')  // parse the incoming requests body
 const path = require('path')
 const mongoose = require('mongoose');
+const dbCred = require('./credential');
 
 const app = express();
 
@@ -42,10 +43,9 @@ app.use(errorController.get404);
 // const  server=http.createServer(app);
 // server.listen(3000)
 
-
 mongoose
   .connect(
-    'mongodb+srv://ritupatel:R8983357990p@cluster0.u1u2jqj.mongodb.net/shop?retryWrites=true&w=majority'
+    `mongodb+srv://${dbCred.dbUser}:${dbCred.dbPassword}@cluster0.u1u2jqj.mongodb.net/shop?retryWrites=true&w=majority`
   )
   .then(result => {
     User.findOne().then(user => {
