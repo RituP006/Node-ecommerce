@@ -8,7 +8,7 @@ exports.getProducts=(req, res, next) => {
       res.render('shop/product-list', {
         prods: products,
         docTitle: 'All Products',
-        path: '/product-list'
+        path: '/product-list',
       });
     })
     .catch(err => {
@@ -23,7 +23,7 @@ exports.getProductDetail=(req,res,next)=>{
       res.render('shop/product-detail', {
         product: product,
         docTitle: product.title,
-        path: '/product-list'
+        path: '/product-list',
       });
     })
     .catch(err => console.log(err));
@@ -32,8 +32,8 @@ exports.getProductDetail=(req,res,next)=>{
 exports.getIndex=(req,res,next)=>{
     Product.find().then((products)=>{
       res.render('shop/index', { prods: products, docTitle: 'Shop' ,
-    
-      path:'/',});
+      path:'/',
+    });
   });
 }
 
@@ -43,7 +43,7 @@ exports.getCart = (req, res, next) => {
     res.render('shop/cart', {
       path: '/cart',
       docTitle: 'Your Cart',
-      products: products
+      products: products,
     });
    }).catch(error=>console.log(error));  
     
@@ -81,7 +81,7 @@ exports.postOrder = (req, res, next) => {
       });
       const order = new Order({
         user: {
-          name: req.user.name,
+          email: req.user.email,
           userId: req.user
         },
         products: products
@@ -103,7 +103,7 @@ exports.getOrders = (req, res, next) => {
       res.render('shop/orders', {
         path: '/orders',
         docTitle: 'Your Orders',
-        orders: orders
+        orders: orders,
       });
     })
     .catch(err => console.log(err));

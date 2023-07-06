@@ -1,6 +1,9 @@
-const dbCred = {
+exports.dbCred = {
     dbUser : "ritupatel",
     dbPassword : "R8983357990p"
 }
 
-module.exports =dbCred;
+exports.mailCreds = {
+    user:"16patelritu@gmail.com",
+    password:"srkbdyuffxniynpu"
+}
